@@ -8,7 +8,9 @@ import {Picker} from '@react-native-picker/picker';
 //Getting started
 //Usage
 
-export default function Form() {
+export default function Form(props) {
+
+    const {setCapital,setInteres,setMonths}= props
 
     const [selectedLanguage, setSelectedLanguage] = useState();
 
@@ -18,11 +20,13 @@ export default function Form() {
             <TextInput 
             placeholder='Cantidad a pedir'
             keyboardType='numeric'
+            onChange={e =>setCapital( e.nativeEvent.text)}
             style={styles.input}
             ></TextInput>
             <TextInput 
             placeholder='Interes %'
             keyboardType='numeric'
+            onChange={e =>setInteres( e.nativeEvent.text)}
             style={[styles.input,styles.inputPercentage]}
             ></TextInput>
         </View>
@@ -30,8 +34,10 @@ export default function Form() {
             <Picker
             style ={PickerStyles.input}
             selectedValue={selectedLanguage}
-            onValueChange={(itemValue, itemIndex) =>
+            onValueChange={(itemValue, itemIndex) =>{
                 setSelectedLanguage(itemValue)
+                setMonths(itemValue)
+            }
             }>
                 <Picker.Item label="3 meses" value={3} />
                 <Picker.Item label="6 meses" value={6} />
@@ -55,7 +61,7 @@ const styles = StyleSheet.create({
         position:'absolute',
         bottom:0,
         paddingHorizontal:50,
-        height:150,
+        height:350,
         width: '85%',
         backgroundColor : colors.PRIMARY_COLOR,
         borderRadius:30,
@@ -63,10 +69,11 @@ const styles = StyleSheet.create({
     },
     viewInputs:{
         flexDirection:'row'
+
     },
     input:{
         backgroundColor:'#fff',
-        height:180,
+        height:100,
         width:'60%',
         marginBottom:10,
         marginTop:10,

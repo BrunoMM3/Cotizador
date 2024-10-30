@@ -1,22 +1,66 @@
 
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import colors from './src/utils/colors'
+import {useState} from 'react'
 import Form from './src/components/Form'
+import Footer from './src/components/Footer';
+import ResultCalculation from './src/components/ResultCalculation';
+
 
 export default function App() {
+
+  const [capital, setCapital] = useState(null)
+  const [interes, setInteres] = useState(null)
+  const [months, setMonths] = useState(null)
+  const [total, setTotal] = useState(null)
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const calcular = () => {
+    setTotal(null)
+    setErrorMessage('')
+    if (!capital) {
+      setErrorMessage('falta el capital')
+    } else if(!interes){
+      setErrorMessage('falta el interes')
+    } else if(!months){
+      setErrorMessage('falta elegir los meses')
+    }else{
+      //console.log(capital,interes,months)
+      const i = interes/100
+      const fee = capital / ((1 - Math.pow(1+i,-months)) / i)
+      
+      setTotal({
+        monthlyFee:fee.toFixed(2),
+        totalPayable: (fee*months).toFixed(2)
+      })
+      
+      
+    }
+  }
+
   return (
     <>
       
       <View style={styles.container}>
         
-        <Form/>
+        <Form 
+        setCapital={setCapital} 
+        setInteres={setInteres} 
+        setMonths={setMonths} 
+        
+        />
       </View>
-      <View>
-        <Text>Body</Text>
-      </View>
-      <View>
-        <Text>Footer</Text>
-      </View>
+      <ResultCalculation
+      capital={capital}
+      interes={interes}
+      months={months}
+      total={total}
+      errorMessage ={errorMessage}
+
+      />
+      
+        <Footer calcular={calcular}/>
+      
 
     </>
   );
@@ -24,7 +68,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex:0.5,
+    flex:0.6,
     backgroundColor: colors.PRIMARY_COLOR_DARK,
     alignItems: 'center',
     height:200,
