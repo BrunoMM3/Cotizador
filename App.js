@@ -35,14 +35,17 @@ export default function App() {
       })
       
       
-    }
+    } 
   }
 
   return (
     <>
       
       <View style={styles.container}>
-        
+        <Text
+          style={[{fontSize:25},{margin:10},{fontWeight:'bold'},{bottom:160},{color:'cornsilk'}]}
+          >Prestamos
+        </Text>
         <Form 
         setCapital={setCapital} 
         setInteres={setInteres} 
@@ -50,16 +53,19 @@ export default function App() {
         
         />
       </View>
-      <ResultCalculation
-      capital={capital}
-      interes={interes}
-      months={months}
-      total={total}
-      errorMessage ={errorMessage}
+        <ResultCalculation
+        capital={capital}
+        interes={interes}
+        months={months}
+        total={total}
+        errorMessage ={errorMessage}
 
-      />
+        />
       
-        <Footer calcular={calcular}/>
+        <Footer 
+          calcular={calcular}
+          
+          />
       
 
     </>
@@ -68,7 +74,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex:0.6,
+    flex:0.7,
     backgroundColor: colors.PRIMARY_COLOR_DARK,
     alignItems: 'center',
     height:200,

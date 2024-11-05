@@ -17,14 +17,13 @@ export default function Footer({calcular}) {
 const styles = StyleSheet.create({
     viewFooter:{
         backgroundColor:colors.PRIMARY_COLOR_DARK,
-        borderTopRightRadius:30,
-        borderTopLeftRadius:30,
+        borderRadius:30,
         position:'absolute',
         alignItems:'center',
         justifyContent:'center',
         bottom:0,
         width:'100%',
-        height:100
+        height:80
     },
     text:{
         fontWeight:'bold',

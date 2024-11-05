@@ -16,6 +16,7 @@ export default function Form(props) {
 
   return (
     <View style = {styles.viewForm}>
+        
         <View style={styles.viewInputs}>
             <TextInput 
             placeholder='Cantidad a pedir'
