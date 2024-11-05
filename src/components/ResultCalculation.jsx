@@ -3,7 +3,8 @@ import React from 'react'
 
 export default function ResultCalculation(props) {
     const {capital,interes,months,total,errorMessage} = props
-
+    
+    
   return (
     <View style={styles.container}>
         {total && (
@@ -35,7 +36,7 @@ export default function ResultCalculation(props) {
 
 const styles = StyleSheet.create({
     container:{
-        flex:0.5,
+        flex:0.7,
         backgroundColor:'aqua',
         marginTop:20,
         marginHorizontal:20,

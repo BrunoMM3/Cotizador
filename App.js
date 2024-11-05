@@ -1,10 +1,11 @@
 
 import { Button, StyleSheet, Text, View } from 'react-native';
 import colors from './src/utils/colors'
-import {useState} from 'react'
+import {useState}from 'react'
 import Form from './src/components/Form'
 import Footer from './src/components/Footer';
 import ResultCalculation from './src/components/ResultCalculation';
+import { useEffect } from 'react';
 
 
 export default function App() {
@@ -37,13 +38,17 @@ export default function App() {
       
     } 
   }
+  useEffect(() => {
+      calcular();
+    
+  }, [interes,capital,months])
 
   return (
     <>
       
       <View style={styles.container}>
         <Text
-          style={[{fontSize:25},{margin:10},{fontWeight:'bold'},{bottom:160},{color:'cornsilk'}]}
+          style={[{fontSize:25},{margin:10},{fontWeight:'bold'},{bottom:130},{color:'cornsilk'}]}
           >Prestamos
         </Text>
         <Form 

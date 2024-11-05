@@ -40,6 +40,7 @@ export default function Form(props) {
                 setMonths(itemValue)
             }
             }>
+                <Picker.Item label='Selecciona los meses' value={null}/>
                 <Picker.Item label="3 meses" value={3} />
                 <Picker.Item label="6 meses" value={6} />
                 <Picker.Item label="9 meses" value={9} />
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
         position:'absolute',
         bottom:0,
         paddingHorizontal:50,
-        height:350,
+        height:240,
         width: '85%',
         backgroundColor : colors.PRIMARY_COLOR,
         borderRadius:30,
