@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "nuevo",
-    "slug": "nuevo",
+    "name": "Cotizaciones",
+    "slug": "cotizacionprestamo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/dinero.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -16,12 +16,19 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/dinero.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.brunomm3.cotizacionprestamo"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/dinero.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a45e68cb-158c-408a-9596-0de3f7c95e61"
+      }
+    },
+    "owner": "brunomm3"
   }
 }
